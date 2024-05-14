@@ -1,14 +1,50 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-
+//addNew variable is for the while loop below 
+let addNew = true;
+ const employeesArray = [];
 // Collect employee data
+
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  // done: Get user input to create and return an array of employee objects
+  while (addNew) {
+  let firstName = prompt ("What is the employee's first name?");
+  let lastName = prompt ("What is the employee's last name?");
+  let salary = prompt ("What is the employee's salary?")
+   //The push method adds to the end of the array.  Per Readme, needs label and value (label: string) 
+  employeesArray.push ( {
+    firstName: firstName,
+    lastName: lastName, 
+    salary: salary
+  });
+
+  addNew = confirm ("Would you like to Add another employee?");
+    
+  if (!addNew) {
+      //console.log(addNew)
+      //console.log(employeesArray)
+      break;
+    }
+  }
+  //Once the array is built, don't forget to return it so functions below
+  //can use it
+  return employeesArray;
+
+
+
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  //Need to build a new array by using the array.map function
+  //Arrow function is way less cumbersome than a for loop (a for loop does the job though)
+  const salaryArray = employeesArray.map(employeesArray => employeesArray.salary);
+  console.log(salaryArray)
+  for (let i = 0; i <salaryArray.length; i++) {
+   //the sum function!  Yes.  Clean.  sum +=
+    
+  }
 }
 
 // Select a random employee
