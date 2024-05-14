@@ -13,8 +13,16 @@ const collectEmployees = function() {
   let salary = Number(prompt ("What is the employee's salary?"));
   //Done: Add is NaN for salary above
   //while loop ensures user cannot proceed until a number is entered  
-  while (isNaN (salary)) {
+  //This better functionality than the instructions request.
+  //however, it's not the instructions so...
+
+ /* while (isNaN (salary)) {
       salary = Number(prompt ("Please enter a numeric value"));
+    }*/
+    //Matches instructions and injects value 0
+    if (isNaN(salary)) {
+      alert ("That is not a numeric value.  A default value of 0 has been entered.");
+      salary = Number(0);
     }
   //The push method adds to the end of the array.  Per Readme, needs label and value (label: string) 
   employeesArray.push ( {
