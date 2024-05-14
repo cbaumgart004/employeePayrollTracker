@@ -54,11 +54,11 @@ const displayAverageSalary = function(employeesArray) {
   //Need to build a new array by using the array.map function
   //Arrow function is way less cumbersome than a for loop (a for loop does the job though)
   const salaryArray = employeesArray.map(employeesArray => employeesArray.salary);
-  console.log(salaryArray)
+  //console.log(salaryArray)
   for (let i = 0; i < salaryArray.length; i++) {
    //the sum function!  Yes.  Clean.  salarySum +=
     salarySum += salaryArray[i]
-    console.log(salarySum)
+    //console.log(salarySum)
   }
   //Math.round(number * 100) / 100 gives you 2 decimal places
   averageSalary  = Math.round((salarySum / salaryArray.length) * 100) / 100;
@@ -67,10 +67,19 @@ const displayAverageSalary = function(employeesArray) {
   return averageSalary;
   
 }
-
+let randomEmployee = 0;
+//random 0 will be the 0 index value for randomEmployee
+let randomZero = 0;
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+  // done: Select and display a random employee
+  //Math.floor(Math.random()) is 1 indexed.  Remember to include last element
+  //console.log(employeesArray.length);
+  randomEmployee = Math.floor(Math.random() * employeesArray.length + 1);
+  randomZero = randomEmployee - 1
+  //console.log(randomEmployee);
+  //console.log(employeesArray[randomZero]);
+  console.log(`${employeesArray[randomZero].firstName} ${employeesArray[randomZero].lastName}`);
 }
 
 /*
