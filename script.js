@@ -10,8 +10,13 @@ const collectEmployees = function() {
   while (addNew) {
   let firstName = prompt ("What is the employee's first name?");
   let lastName = prompt ("What is the employee's last name?");
-  let salary = prompt ("What is the employee's salary?")
-   //The push method adds to the end of the array.  Per Readme, needs label and value (label: string) 
+  let salary = Number(prompt ("What is the employee's salary?"));
+  //Done: Add is NaN for salary above
+  //while loop ensures user cannot proceed until a number is entered  
+  while (isNaN (salary)) {
+      salary = Number(prompt ("Please enter a numeric value"));
+    }
+  //The push method adds to the end of the array.  Per Readme, needs label and value (label: string) 
   employeesArray.push ( {
     firstName: firstName,
     lastName: lastName, 
@@ -33,18 +38,26 @@ const collectEmployees = function() {
 
 
 }
-
+  let salarySum = 0;
+  let averageSalary = 0;
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+  // done: Calculate and display the average salary
   //Need to build a new array by using the array.map function
   //Arrow function is way less cumbersome than a for loop (a for loop does the job though)
   const salaryArray = employeesArray.map(employeesArray => employeesArray.salary);
   console.log(salaryArray)
-  for (let i = 0; i <salaryArray.length; i++) {
-   //the sum function!  Yes.  Clean.  sum +=
-    
+  for (let i = 0; i < salaryArray.length; i++) {
+   //the sum function!  Yes.  Clean.  salarySum +=
+    salarySum += salaryArray[i]
+    console.log(salarySum)
   }
+  //Math.round(number * 100) / 100 gives you 2 decimal places
+  averageSalary  = Math.round((salarySum / salaryArray.length) * 100) / 100;
+  console.log(`Number of Employees: ${employeesArray.length}`)
+  console.log(`Average Salary: \$ ${averageSalary}`)
+  return averageSalary;
+  
 }
 
 // Select a random employee
