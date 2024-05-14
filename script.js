@@ -42,10 +42,7 @@ const collectEmployees = function() {
   //Once the array is built, don't forget to return it so functions below
   //can use it
   return employeesArray;
-
-
-
-}
+};
   let salarySum = 0;
   let averageSalary = 0;
 // Display the average salary
@@ -66,7 +63,7 @@ const displayAverageSalary = function(employeesArray) {
   console.log(`Average Salary: \$ ${averageSalary}`)
   return averageSalary;
   
-}
+};
 let randomEmployee = 0;
 //random 0 will be the 0 index value for randomEmployee
 let randomZero = 0;
@@ -79,9 +76,8 @@ const getRandomEmployee = function(employeesArray) {
   randomZero = randomEmployee - 1
   //console.log(randomEmployee);
   //console.log(employeesArray[randomZero]);
-  console.log(`${employeesArray[randomZero].firstName} ${employeesArray[randomZero].lastName}`);
-}
-
+  console.log(`${employeesArray[randomZero].firstName} ${employeesArray[randomZero].lastName} You have been selected at Random.`);
+};
 /*
   ====================
   STARTER CODE
