@@ -1,29 +1,47 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-//addNew variable is for the while loop below 
-let addNew = true;
+
+
  const employeesArray = [];
 // Collect employee data
 
 const collectEmployees = function() {
   // done: Get user input to create and return an array of employee objects
+  //addNew variable is for the while loop below 
+  let addNew = true;
   while (addNew) {
   let firstName = prompt ("What is the employee's first name?");
+    if (firstName === null) { 
+      break;
+    };
   let lastName = prompt ("What is the employee's last name?");
-  let salary = Number(prompt ("What is the employee's salary?"));
+  if (lastName === null) { 
+    firstName = null;
+    break;
+  };
+  let salary = prompt ("What is the employee's salary?");
   //Done: Add is NaN for salary above
   //while loop ensures user cannot proceed until a number is entered  
   //This better functionality than the instructions request.
   //however, it's not the instructions so...
-
+    //while loop is commented out below
  /* while (isNaN (salary)) {
       salary = Number(prompt ("Please enter a numeric value"));
     }*/
-    //Matches instructions and injects value 0
-    if (isNaN(salary)) {
-      alert ("That is not a numeric value.  A default value of 0 has been entered.");
+    
+    if (salary === null) {
       salary = Number(0);
-    }
+      //Matches instructions and injects value 0
+    } else if (isNaN(salary)) {
+      alert ("That is not a numeric value.  A default value of 0 has been entered.");
+      //will return an average salary of NaN
+      salary = Number(0);
+    } else {
+      salary = Number(salary);
+    
+    };
+
+   
   //The push method adds to the end of the array.  Per Readme, needs label and value (label: string) 
   employeesArray.push ( {
     firstName: firstName,
@@ -43,17 +61,22 @@ const collectEmployees = function() {
   //can use it
   return employeesArray;
 };
-  let salarySum = 0;
-  let averageSalary = 0;
+  
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
+  
+  let salarySum = 0;
+  let averageSalary = 0;
   // done: Calculate and display the average salary
   //Need to build a new array by using the array.map function
   //Arrow function is way less cumbersome than a for loop (a for loop does the job though)
   const salaryArray = employeesArray.map(employeesArray => employeesArray.salary);
   //console.log(salaryArray)
+  if (employeesArray.length > 0) {
+    
+  
   for (let i = 0; i < salaryArray.length; i++) {
-   //the sum function!  Yes.  Clean.  salarySum +=
+   //the self add function!  Yes.  Clean.  salarySum +=
     salarySum += salaryArray[i]
     //console.log(salarySum)
   }
@@ -62,7 +85,10 @@ const displayAverageSalary = function(employeesArray) {
   console.log(`Number of Employees: ${employeesArray.length}`)
   console.log(`Average Salary: \$ ${averageSalary}`)
   return averageSalary;
-  
+  }else {
+    console.log(`Number of Employees: 0`)
+    console.log(`Average Salary: $0`)
+  }
 };
 let randomEmployee = 0;
 //random 0 will be the 0 index value for randomEmployee
@@ -70,13 +96,20 @@ let randomZero = 0;
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // done: Select and display a random employee
+  //if there are no employees, skip it.  Can't figure out why break didn't work here
+  //but this will get the job done
+  if (employeesArray.length > 0) {
   //Math.floor(Math.random()) is 1 indexed.  Remember to include last element
   //console.log(employeesArray.length);
   randomEmployee = Math.floor(Math.random() * employeesArray.length + 1);
   randomZero = randomEmployee - 1
   //console.log(randomEmployee);
   //console.log(employeesArray[randomZero]);
+  
   console.log(`${employeesArray[randomZero].firstName} ${employeesArray[randomZero].lastName} You have been selected at Random.`);
+  } else {
+    console.log(`There are no employees to choose from`)
+  }
 };
 /*
   ====================

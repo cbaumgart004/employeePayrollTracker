@@ -10,7 +10,7 @@ In addition to building a table on the page, this page will log the data in the 
 Finally, you will see in the console a log of the number of employees you've entered, the average salary of all your employees, and a log of 1 employee chosen at random.
 
 ## Installation
-This website can be found by navigating to following URL: [Employee Payroll Tracker](https://cbaumgart004.github.io.//employeePayrollTracker/)
+This website can be found by navigating to following URL: [Employee Payroll Tracker](https://cbaumgart004.github.io./employeePayrollTracker/)
 The GitHub Repository for this page can be found at [cbaumgart004/employeePayrollTracker](https://github.com/cbaumgart004/employeePayrollTracker)
 ## Usage
 Click the Add Employees button to get started
@@ -35,6 +35,9 @@ If you created an application or package and would like other developers to cont
 Here are a few tests you can try:
 * Add only one employee.  Does it work like you'd expect?
 * What if you enter a string value for your salary?
+* What if you cancel before you finish an employee?
+* What if you cancel before entering any values?
+* Can you go back and add more employees after finishing the process the first time?
 * What are some other tests you can try?
 
 Thank you for visiting.
